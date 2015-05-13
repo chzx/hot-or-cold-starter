@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-	
+	//var found = false;
 	//Function to compare between numbers
 	function between(x, min, max) {
 		return x >= min && x <= max;
@@ -23,6 +23,7 @@ $(document).ready(function(){
   	//New Game button
   	$("a.new").click(function(e) {
   		e.preventDefault();
+  		//found = false;
   		randomInt = Math.floor((Math.random()*100)+1);
 
   		$("#feedback").text("Make your guess!");
@@ -59,11 +60,16 @@ $(document).ready(function(){
 		$("#count").text((parseInt($("#count").text() ) +1));
 
 		//ADD TO GUESS LIST
-		$("#guessList").append("<li>" + userGuess + "</li>");
+		$("#guessList").append("<li>" + value + "</li>");
 		
 		//VALIDATE ANSWER
 		if(value === randomInt) {
-			$("#feedback").text("You got it!, It's " + value);
+			$("#feedback").text("You got it! It's " + value + "! Click +New Game to play again!");
+			//found = true;
+			
+				$("#userGuess").attr("disabled",true);
+				$(this).attr("disabled",true);
+
 			return;
 		}
 		//VALIDATE RANGE OF 5
@@ -92,5 +98,6 @@ $(document).ready(function(){
 		});
 
 	});
+
 
 
