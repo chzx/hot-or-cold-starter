@@ -26,10 +26,16 @@ $(document).ready(function(){
   		//found = false;
   		randomInt = Math.floor((Math.random()*100)+1);
 
-  		$("#feedback").text("Make your guess!");
+  		
+
+  		$("#feedback").text("Make your Guess!");
   		$("#count").text(0);
   		$("#guessList").html(" ");
   		$("#userGuess").val(" ");
+  		
+
+  		$("#userGuess").prop("disabled",false);
+			$("#guessButton").prop("disabled",false);
 })
 
 	//Guess button on click
@@ -67,8 +73,8 @@ $(document).ready(function(){
 			$("#feedback").text("You got it! It's " + value + "! Click +New Game to play again!");
 			//found = true;
 			
-				$("#userGuess").attr("disabled",true);
-				$(this).attr("disabled",true);
+				$("#userGuess").prop("disabled",true);
+				$(this).prop("disabled",true);
 
 			return;
 		}
